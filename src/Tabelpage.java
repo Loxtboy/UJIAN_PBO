@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class Tabelpage extends javax.swing.JFrame {
     public static Connection con() throws ClassNotFoundException,SQLException{
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String mysqlUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=ujian_PBO_praktek;TrustServerCertificate=true;Encrypt=false;";
+        String mysqlUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=db_ujian_PBO_praktek;TrustServerCertificate=true;Encrypt=false;";
         Connection con = DriverManager.getConnection(mysqlUrl,"JOSEF","123");
         return con;
     }
@@ -38,10 +38,10 @@ public class Tabelpage extends javax.swing.JFrame {
                 rst.getString("Nama"),
                 rst.getString("Jurusan"),
                 rst.getString("Email"),
-                rst.getString("Password"),
+                rst.getString("Alamat"),
                 rst.getString("Jenis_Kelamin"),
                 rst.getString("Tanggal_Lahir"),
-                rst.getString("Alamat")
+                rst.getString("Password")
             });
           }
         } catch (SQLException ex) {
@@ -176,11 +176,11 @@ public class Tabelpage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "NIM", "NAMA", "JENIS KELAMIN", "TANGGAL LAHIR", "ALAMAT", "PROGRAM STUDY", "E-MAIL", "PASSWORD"
+                "NAMA", "JENIS KELAMIN", "TANGGAL LAHIR", "ALAMAT", "JURUSAN", "E-MAIL", "PASSWORD"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -267,16 +267,14 @@ public class Tabelpage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Homepage kirim = new Homepage();
-        kirim.setVisible(true);
-        dispose();
+      new Homepage().setVisible(true);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Formpage kirim = new Formpage();
-        kirim.setVisible(true);
-        dispose();
+       new Formpage().setVisible(true);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

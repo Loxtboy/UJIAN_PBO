@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class Formpage extends javax.swing.JFrame {
     public static Connection con() throws ClassNotFoundException,SQLException{
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String mysqlUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=ujian_PBO_praktek;TrustServerCertificate=true;Encrypt=false;";
+        String mysqlUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=db_ujian_PBO_praktek;TrustServerCertificate=true;Encrypt=false;";
         Connection con = DriverManager.getConnection(mysqlUrl,"JOSEF","123");
         return con;
     }
@@ -446,9 +446,7 @@ public class Formpage extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        Homepage kirim = new Homepage();
-        kirim.setVisible(true);
-        dispose();
+        new Homepage().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -456,10 +454,12 @@ public class Formpage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        Tabelpage kirim = new Tabelpage();
-        kirim.setVisible(true);
-        dispose();
+        try {
+            // TODO add your handling code here:
+            new Tabelpage().setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Formpage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

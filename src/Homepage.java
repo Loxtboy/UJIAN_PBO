@@ -1,3 +1,7 @@
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -230,16 +234,17 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Formpage kirim = new Formpage();
-        kirim.setVisible(true);
-        dispose();
+        new Formpage().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        Tabelpage send = new Tabelpage();
-        send.setVisible(true);
-        dispose();
+        try {
+            // TODO add your handling code here:
+            new Tabelpage().setVisible(true);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -295,4 +300,8 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     // End of variables declaration//GEN-END:variables
+
+    void setVisible() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
